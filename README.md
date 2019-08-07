@@ -8,3 +8,6 @@ Objective assessment of Parkinson’s disease symptoms during daily life can pro
 This repository contains code to create multiple classifiers that fit together in a system as shown below:
 
 ![alt text](pd_analytics_diagram.png?raw=true "pd_analytics_diagram.png")
+
+The repository is organized in the following fashion:
+..* test
