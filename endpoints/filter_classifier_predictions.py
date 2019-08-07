@@ -14,6 +14,12 @@ assessment        assessment
 import pandas as pd
 
 def filter_predictions_by_tree(algorithm_predictions):
+    '''
+    Filter out predictions based on context.
+
+    :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'brady_amplitude', 'brady_jerk']
+    :return: Pandas DataFrame of filtered predictions based on context.
+    '''
     hm = algorithm_predictions.hand_movement.tolist()
     gait = algorithm_predictions.gait.tolist()
     tremor_constancy = algorithm_predictions.tremor_constancy.tolist()
