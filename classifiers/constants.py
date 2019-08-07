@@ -1,3 +1,7 @@
+'''
+This file contains all constants used in creation of the analytics.
+'''
+
 GAIT_FEATURE_SELECTION = ['x_bp_filt_[0.25, 3.0]_signal_entropy',
  'x_bp_filt_[0.25, 3.0]_y_bp_filt_[0.25, 3.0]_corr_coef',
  'x_bp_filt_[0.25, 3.0]_z_bp_filt_[0.25, 3.0]_corr_coef',

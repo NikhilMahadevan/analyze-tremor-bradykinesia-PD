@@ -18,9 +18,10 @@ def compute_rms(data_array):
 
 def calculate_tremor_amplitude(raw_accelerometer_data_df, fs):
     '''
-    Convert filtered raw accelerometer data into tremor_salarian amplitude.
-    :param data_df: DataFrame of raw accelerometer data
-    :return:
+    Calculate tremor amplitude from raw accelerometer data collected from wearable sensor at wrist location.
+    :param raw_accelerometer_data_df: Pandas DataFrame of raw accelerometer data. Columns = ['ts','x','y','z']
+    :param fs: Sampling rate of raw accelerometer data (float)
+    :return: Computed tremor amplitude in 3 second windows (list)
     '''
 
     # Pre-process data
@@ -30,14 +31,12 @@ def calculate_tremor_amplitude(raw_accelerometer_data_df, fs):
     bp_headers = ['x_bp_filt_[3.5, 7.5]', 'y_bp_filt_[3.5, 7.5]', 'z_bp_filt_[3.5, 7.5]']
     filtered_data_df = filtered_data_df[bp_headers]
 
-    # Tremor Amplitude
     tremor_amplitudes_per_window = []
 
     # Segment into 3 second windows
     total_samples = filtered_data_df.shape[0]
     window_samples = fs * 3.0
     total_windows = round(total_samples / float(window_samples))
-
     for win in range(int(total_windows)):
         current_win_start = int(window_samples * win + 1)
         current_win_end = int(current_win_start + window_samples - 1)
@@ -48,6 +47,7 @@ def calculate_tremor_amplitude(raw_accelerometer_data_df, fs):
         window_data_df.reset_index(drop=True, inplace=True)
         window_data_df = window_data_df[bp_headers]
 
+        # Compute Tremor Amplitude
         window_data_df['mag'] = np.sqrt((window_data_df['x_bp_filt_[3.5, 7.5]']**2)+(window_data_df['y_bp_filt_[3.5, 7.5]']**2)+(window_data_df['z_bp_filt_[3.5, 7.5]']**2))
         combined_amplitude = compute_rms(window_data_df.mag.tolist())
         tremor_amplitudes_per_window.append(combined_amplitude)

@@ -1,6 +1,7 @@
 '''
 This file is used to extract features for gait classification. Machine learning model parameters are included.
-Users will have to provide their own data and ground truths to train the model.
+Users will have to provide their own data and ground truths to train the model. Input data is raw accelerometer data
+from wearable sensor on wrist location.
 '''
 
 import pandas as pd
@@ -10,11 +11,12 @@ import constants
 
 def extract_gait_classification_features(window_data_df, channels, fs):
     '''
+    Extract signal features applicable for gait classification for a given 3 second window of raw accelerometer data.
 
-    :param window_data_df:
-    :param channels:
-    :param fs:
-    :return:
+    :param window_data_df: Pandas DataFrame with columns ['ts','x','y','z']
+    :param channels: Desired channels to run features on (Ex: ['x','y','z'])
+    :param fs: Sampling rate of raw accelerometer data (Float)
+    :return: DataFrame of calculated features on 3 second windows for given raw data
     '''
     features = pd.DataFrame()
 
@@ -59,11 +61,11 @@ def extract_gait_classification_features(window_data_df, channels, fs):
 
 def build_gait_classification_feature_set(raw_accelerometer_data_df, fs):
     '''
-    Build feature set used for gait classification.
+    Pre-process raw accelerometer data and compute signal based features on data.
 
-    :param raw_accelerometer_data_df: Raw accelerometer data in a pandas DataFrame. Columns = ['ts','x','y','z']
-    :param fs:
-    :return:
+    :param raw_accelerometer_data_df: Raw accelerometer data in a Pandas DataFrame wth columns = ['ts','x','y','z']
+    :param fs: Sampling rate of raw accelerometer data (Float)
+    :return: Pandas DataFrame of calculated features for given raw accelerometer data
     '''
     # Initialize final DataFrame
     final_feature_cache = pd.DataFrame()
@@ -109,13 +111,17 @@ def build_gait_classification_feature_set(raw_accelerometer_data_df, fs):
     return final_feature_cache
 
 def initialize_model():
+    '''
+    Function to create model that can be trained to classify gait using calculated signal based features.
+    :return: SciKit learn Random Forest classifier
+    '''
     from sklearn.ensemble import RandomForestClassifier
     model = RandomForestClassifier()
     return model
 
 if __name__ == "__main__":
     '''
-    Main runner to extract features for gait classification. Model parameters are available to load.  
+    Main runner to extract features for gait classification. Model parameters are available to load (initialize_model()).  
     '''
 
     raw_data_filepath = ''# Insert filepath to raw accelerometer sensor data from wrist location.

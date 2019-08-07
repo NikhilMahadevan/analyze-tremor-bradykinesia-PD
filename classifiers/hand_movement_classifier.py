@@ -51,17 +51,17 @@ def compute_rolling_std(x, window_length):
 
     return y
 
-def detect_hand_movement(wrist_accel, fs, window_length=3, threshold=0.01):
+def detect_hand_movement(raw_accelerometer_data_df, fs, window_length=3, threshold=0.01):
     '''
     Method for detecting hand movement from raw accelerometer data.
-    :param wrist_accel: Pandas dataframe with accelerometer axis represented as x, y and z columns
+    :param raw_accelerometer_data_df: Pandas DataFrame with accelerometer axis represented as x, y and z columns
     :param fs: Sampling rate (samples/second) of the accelerometer data
     :param window_length: Length (in seconds) of the non-overlapping window for hand movement classification
     :param threshold: Threshold value that is applied to the coefficient of variation to detect hand movement
-    :return:
+    :return: Detected hand movement as numpy array in desired window length
     '''
     # Calculate the vector magnitude of the accelerometer signal
-    accelerometer_vector_magnitude = np.sqrt((wrist_accel.x**2 + wrist_accel.y**2 + wrist_accel.z**2))
+    accelerometer_vector_magnitude = np.sqrt((raw_accelerometer_data_df.x**2 + raw_accelerometer_data_df.y**2 + raw_accelerometer_data_df.z**2))
 
     # Low-pass filter the accelerometer vector magnitude signal to remove high frequency components
     low_pass_cutoff = 3 # cutoff frequency for the lowpass filter
