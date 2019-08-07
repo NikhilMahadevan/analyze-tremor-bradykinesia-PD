@@ -1,5 +1,5 @@
 '''
-This file houses functions to create features based on accelerometer data.
+This file houses functions to compute signal features based on accelerometer data.
 '''
 
 from statsmodels.tsa.stattools import acf
@@ -7,7 +7,6 @@ from scipy import stats
 import tsfresh as tsf
 import numpy as np
 import pandas as pd
-
 
 def histogram(signal_x):
     '''
@@ -37,9 +36,9 @@ def signal_entropy(signal_df, channels):
     '''
     Calculate signal entropy of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure signal entropy
-    :return: dataframe housing calculated signal entropy for each signal channel
+    :return: Pandas DataFrame housing calculated signal entropy for each signal channel
     '''
     signal_entropy_df = pd.DataFrame()
 
@@ -80,9 +79,9 @@ def correlation_coefficient(signal_df, channels):
     '''
     Calculate correlation coefficient of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure correlation coefficient
-    :return: dataframe of calculated correlation coefficient for each signal channel
+    :return: Pandas DataFrame of calculated correlation coefficient for each signal channel
     '''
     corr_coef_df = pd.DataFrame()
     C = signal_df.corr()
@@ -97,9 +96,9 @@ def signal_rms(signal_df, channels):
     '''
     Calculate root mean square of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure RMS
-    :return: dataframe housing calculated RMS for each signal channel
+    :return: Pandas DataFrame housing calculated RMS for each signal channel
     '''
     rms_df = pd.DataFrame()
 
@@ -112,9 +111,9 @@ def signal_range(signal_df, channels):
     '''
     Calculate range of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure range
-    :return: dataframe housing calculated range for each signal channel
+    :return: Pandas DataFrame housing calculated range for each signal channel
     '''
     range_df = pd.DataFrame()
 
@@ -125,10 +124,11 @@ def signal_range(signal_df, channels):
 
 def iqr_of_autocovariance(signal_df, channels):
     '''
-
-    :param signal_df: dataframe housing sensor signals
+    Calculate interquartile range of autocovariance of sensor signals.
+    
+    :param signal_df: Pandas DataFrame housing sensor signals
     :param channels: channels of signal to obtain IQR of autocovariance
-    :return: dataframe of calculated IQR of autocovariance for each signal channel
+    :return: Pandas DataFrame of calculated IQR of autocovariance for each signal channel
     '''
     autocov_range_df = pd.DataFrame()
 
@@ -143,11 +143,11 @@ def dominant_frequency(signal_df, sampling_rate, cutoff, channels):
     '''
     Calculate dominant frequency of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param sampling_rate: sampling rate of sensor signal
     :param cutoff: desired cutoff for filter
     :param channels: channels of signal to measure dominant frequency
-    :return: dataframe of calculated dominant frequency for each signal channel
+    :return: Pandas DataFrame of calculated dominant frequency for each signal channel
     '''
     dominant_freq_df = pd.DataFrame()
 
@@ -204,9 +204,9 @@ def mean_cross_rate(signal_df, channels):
     '''
     Compute mean cross rate of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure mean cross rate
-    :return: dataframe housing calculated mean cross rate for each signal channel
+    :return: Pandas DataFrame housing calculated mean cross rate for each signal channel
     '''
     mean_cross_rate_df = pd.DataFrame()
     signal_df_mean = signal_df[channels] - signal_df[channels].mean()
@@ -228,11 +228,11 @@ def range_count_percentage(signal_df, channels, min_value=-1, max_value=1):
     '''
     Calculate range count percentage of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param channels: channels of signal to measure range count percentage
     :param min_value: desired minimum value
     :param max_value: desired maximum value
-    :return: dataframe of calculated range count percentage for each signal channel
+    :return: Pandas DataFrame of calculated range count percentage for each signal channel
     '''
     range_count_df = pd.DataFrame()
 
@@ -247,10 +247,10 @@ def jerk_metric(signal_df, sampling_rate, channels):
     '''
     Calculate jerk of sensor signals.
 
-    :param signal_df: dataframe housing desired sensor signals
+    :param signal_df: Pandas DataFrame housing desired sensor signals
     :param sampling_rate: sampling rate of sensor signals
     :param channels: channels of sensor signal to compute jerk
-    :return: dataframe of calculated jerk for each sensor channel
+    :return: Pandas DataFrame of calculated jerk for each sensor channel
     '''
     jerk_ratio_df = pd.DataFrame()
 

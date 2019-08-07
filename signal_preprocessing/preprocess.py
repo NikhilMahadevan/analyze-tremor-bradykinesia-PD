@@ -1,5 +1,5 @@
 '''
-This file is used for pre-processing accelerometer sensor signals.
+This file houses functions used for pre-processing accelerometer sensor signals.
 '''
 
 from scipy import signal
