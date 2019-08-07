@@ -7,4 +7,4 @@ Objective assessment of Parkinson’s disease symptoms during daily life can pro
 ## Repository Contents
 This repository contains code to create multiple classifiers that fit together in a system as shown below:
 
-![alt text](https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/add-analytics/analyze-tremor-bradykinesia-PD/pd_analytics_diagram.png)
+![alt text](https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/add-analytics/pd_analytics_diagram.png)
