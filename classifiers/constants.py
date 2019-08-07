@@ -1,0 +1,43 @@
+'''
+This file contains all constants used in creation of the analytics.
+'''
+
+GAIT_FEATURE_SELECTION = ['x_bp_filt_[0.25, 3.0]_signal_entropy',
+ 'x_bp_filt_[0.25, 3.0]_y_bp_filt_[0.25, 3.0]_corr_coef',
+ 'x_bp_filt_[0.25, 3.0]_z_bp_filt_[0.25, 3.0]_corr_coef',
+ 'y_bp_filt_[0.25, 3.0]_z_bp_filt_[0.25, 3.0]_corr_coef',
+ 'x_bp_filt_[0.25, 3.0]_rms', 'y_bp_filt_[0.25, 3.0]_rms',
+ 'z_bp_filt_[0.25, 3.0]_rms', 'x_bp_filt_[0.25, 3.0]_range',
+ 'y_bp_filt_[0.25, 3.0]_range', 'z_bp_filt_[0.25, 3.0]_range',
+ 'x_bp_filt_[0.25, 3.0]_dom_freq_value',
+ 'x_bp_filt_[0.25, 3.0]_dom_freq_magnitude',
+ 'x_bp_filt_[0.25, 3.0]_spectral_flatness',
+ 'x_bp_filt_[0.25, 3.0]_spectral_entropy',
+ 'y_bp_filt_[0.25, 3.0]_spectral_flatness',
+ 'y_bp_filt_[0.25, 3.0]_spectral_entropy',
+ 'z_bp_filt_[0.25, 3.0]_dom_freq_value',
+ 'z_bp_filt_[0.25, 3.0]_dom_freq_magnitude',
+ 'z_bp_filt_[0.25, 3.0]_spectral_flatness',
+ 'z_bp_filt_[0.25, 3.0]_spectral_entropy', 'PC1_[0.25, 3.0]_dom_freq_value',
+ 'x_bp_filt_[0.25, 3.0]_mean_cross_rate',
+ 'y_bp_filt_[0.25, 3.0]_mean_cross_rate',
+ 'z_bp_filt_[0.25, 3.0]_mean_cross_rate']
+
+TREMOR_FEATURE_SELECTION = ['x_bp_filt_[0.25, 3.5]_range',
+ 'z_bp_filt_[3.5, 7.5]_rms',
+ 'x_bp_filt_[0.25, 3.5]_rms',
+ 'PC1_[3.5, 7.5]_rms',
+ 'y_bp_filt_[3.5, 7.5]_spectral_flatness',
+ 'y_bp_filt_[3.5, 7.5]_spectral_entropy',
+ 'z_bp_filt_[3.5, 7.5]_spectral_entropy',
+ 'x_bp_filt_[0.25, 3.5]_spectral_flatness',
+ 'x_bp_filt_[0.25, 3.5]_spectral_entropy',
+ 'y_bp_filt_[0.25, 3.5]_spectral_flatness',
+ 'z_bp_filt_[0.25, 3.5]_dom_freq_value',
+ 'z_bp_filt_[0.25, 3.5]_spectral_flatness',
+ 'PC1_[3.5, 7.5]_spectral_entropy' ,
+ 'PC1_[0.25, 3.5]_dom_freq_value',
+ 'PC1_[0.25, 3.5]_spectral_flatness' ,
+ 'x_bp_filt_[3.5, 7.5]_signal_entropy',
+ 'y_bp_filt_[0.25, 3.5]_signal_entropy',
+ 'z_bp_filt_[0.25, 3.5]_signal_entropy']
