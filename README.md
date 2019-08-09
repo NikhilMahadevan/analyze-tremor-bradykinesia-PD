@@ -46,9 +46,9 @@ The repository is organized as follows:
 |File| Description|
 |---|---|
 | filter_classifier_predictions.py | Filter model predictions per tree above |
-| bradykinesia_endpoints.py | Calculate mean bouts of no hand movement, percentage of no hand movement, mean of hand movement amplitude, and 95th percentile of smoothness of hand movement |
+| bradykinesia_endpoints.py | <ul><li>mean bouts of no hand movement</li><li>percentage of no hand movement</li><li>mean hand movement amplitude</li><li>95th percentile of smoothness of hand movement</li></ul> |
+| bradykinesia_endpoints.py | Calculate mean bouts of no hand movement, percentage of no hand movement, mean hand movement amplitude, and 95th percentile of smoothness of hand movement |
 | resting_tremor_endpoints.py | Calculate percentage of tremor (tremor constancy) and 85th percentile of tremor amplitude |
 
 * __signal_preprocessing__: signal preprocessing functions applied on accelerometer data prior to feature extraction
 * __features__: signal features extracted from accelerometer data used to train supervised learning machine learning models
-
