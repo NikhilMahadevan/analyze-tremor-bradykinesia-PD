@@ -63,13 +63,15 @@ A example of how to make use of this code is as follows:
 
 3. The user can then organize all the predictions from each module into a single `Pandas DataFrame` with the following column headers: `'hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'brady_amplitude', 'brady_jerk'`. These predictions can then be filtered using the hierarchical tree shown above with the function: `filter_predictions_by_tree()` in the `endpoints/filter_classifier_predictions.py` file. This function will return another `Pandas DataFrame` of predictions with the following columns: `'tremor_classifier_predictions','tremor_amplitude_predictions','hand_movement_predictions', 'hand_movement_amplitude', 'hand_movement_jerk'`.
 
-4. Summary measures can be generated for each measurement. Aggregate measures of tremor (tremor constancy and tremor amplitude) can be computed using the functions `compute_tremor_constancy()` and `compute_aggregate_tremor_amplitude()` respectively from the file `endpoints/resting_tremor_endpoints.py`. Aggregate measures of bradykinesia (hand movement amplitude, smoothness of hand movement, percentage of no hand movement, length of no hand movement bouts) can be computed using `compute_aggregate_hand_movement_amplitude()`, `compute_aggregate_smoothness_of_hand_movement()`, `compute_aggregate_percentage_of_no_hand_movement()`, `compute_aggregate_length_of_no_hand_movement_bouts()` respectively from the `endpoints/bradykinesia_endpoints.py` file.
+4. Summary measures can be generated for each measurement. Aggregate measures of tremor (tremor constancy and tremor amplitude) can be computed using the functions `compute_tremor_constancy()` and `compute_aggregate_tremor_amplitude()` respectively from the file `endpoints/resting_tremor_endpoints.py`. Aggregate measures of bradykinesia (hand movement amplitude, smoothness of hand movement, percentage of no hand movement, length of no hand movement bouts) can be computed using `compute_aggregate_hand_movement_amplitude()`, `compute_aggregate_smoothness_of_hand_movement()`, `compute_aggregate_percentage_of_no_hand_movement()`, `compute_aggregate_length_of_no_hand_movement_bouts()` respectively from the `endpoints/bradykinesia_endpoints.py` file. Regarding bradykinesia measures, our work showed that the hand movement amplitude feature had the strongest agreement with clinical measures and was able to discriminate between treatment related changes in motor states the best.
 
-The figure below shows an example visualization of these digital measurements for a given day of data from a subject.
+The figure below shows an example visualization of these digital measurements for a given day of data from a subject (a. Tremor related measures for subject, b. Bradykinesia related measures for subject).
 <p align="center">
   <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6WTABHDA6WDBPZIA325JXFC6">
 </p>
 
+## Demo
+A demo utilizing each of the functions explained above can be seen in the iPython notebook `demo_run_analytics.ipynb` in the `demo` folder. Since there are restrictions on the data set used with our work, the example data used for the demo is not from a Parkinson's patient and should not be used to analyze symptom endpoints. The demo is purely used to show how to run each of the functions.
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
-
