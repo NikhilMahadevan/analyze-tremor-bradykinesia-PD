@@ -36,12 +36,19 @@ The repository is organized as follows:
 |File | Model Type | Description |
 | --- | --- | --- |
 | hand_movement_classifier.py | Heuristic | Binary classification of hand movement |
-| resting_tremor_classifier.py | Machine Learning | Binary classification of tremor |
-| gait_classifier.py | Machine Learning | Binary classification of gait bouts |
+| resting_tremor_classifier.py | Machine Learning | Binary classification of resting tremor |
+| gait_classifier.py | Machine Learning | Binary classification of gait |
 | resting_tremor_amplitude.py | Heuristic | Compute tremor amplitude (during bouts of tremor) |
 | hand_movement_features.py | Heuristic | Compute amplitude of hand movement and smoothness of hand movement (jerk metric) |
 
-* __endpoints__: code to aggregate endpoints for resting tremor and bradykinesia
-* __features__: accelerometer signal features used to train supervised learning machine learning models
-* __signal_preprocessing__: accelerometer signal preprocessing functions
+* __endpoints__: code to filter model predictions per the tree above and summarize measures of resting tremor and bradykinesia for a given period of time
+
+|File| Description|
+|---|---|
+| filter_classifier_predictions.py | Filter model predictions per tree above |
+| bradykinesia_endpoints.py | Calculate mean bouts of no hand movement, percentage of no hand movement, mean of hand movement amplitude, and 95th percentile of smoothness of hand movement |
+| resting_tremor_endpoints.py | Calculate percentage of tremor (tremor constancy) and 85th percentile of tremor amplitude |
+
+* __signal_preprocessing__: signal preprocessing functions applied on accelerometer data prior to feature extraction
+* __features__: signal features extracted from accelerometer data used to train supervised learning machine learning models
 
