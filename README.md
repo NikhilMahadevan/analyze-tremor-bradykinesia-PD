@@ -33,13 +33,13 @@ This system utilizes heuristic and machine learning models for context detection
 The repository is organized as follows:
 * __classifiers__: code to generate classifiers in each node of the tree above
 
-|File | Model Type |
-| --- | --- |
-| hand_movement_classifier.py | Heuristic |
-| resting_tremor_classifier.py | Machine Learning |
-| gait_classifier.py | Machine Learning |
-| resting_tremor_amplitude.py | Heuristic |
-| hand_movement_features.py | Heuristic |
+|File | Model Type | Description |
+| --- | --- | --- |
+| hand_movement_classifier.py | Heuristic | Binary classification of hand movement |
+| resting_tremor_classifier.py | Machine Learning | Binary classification of tremor |
+| gait_classifier.py | Machine Learning | Binary classification of gait bouts |
+| resting_tremor_amplitude.py | Heuristic | Compute tremor amplitude (during bouts of tremor) |
+| hand_movement_features.py | Heuristic | Compute amplitude of hand movement and smoothness of hand movement (jerk metric) |
 
 * __endpoints__: code to aggregate endpoints for resting tremor and bradykinesia
 * __features__: accelerometer signal features used to train supervised learning machine learning models
