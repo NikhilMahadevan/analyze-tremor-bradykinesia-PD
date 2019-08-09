@@ -28,7 +28,7 @@ Our method for continuous objective of assessment of resting tremor and bradykin
   <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6R6JRB2IB25SH3VCZC5JXGMM">
 </p>
 
-This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the availablity of the data set used to support the findings of this work is restricted; the data set was used under contract for this study. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of source code will have to provide their own labeled data sets for training each of the machine learning models.
+This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the data set used to support the findings of this work is restricted for public use. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of source code will have to provide their own labeled data sets for training each of the machine learning models.
 
 The repository is organized as follows:
 * __classifiers__: code to generate classifiers in each node of the tree above. See further explanation in table below:
