@@ -25,7 +25,7 @@ pip install -r requirements.txt
 Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below.
 
 <p align="center">
-  <img width="500" height="500" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6X2C74T2QCNCCZHWYS5JWLVK">
+  <img width="500" height="400" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6X2C74T2QCNCCZHWYS5JWLVK">
 </p>
 
 This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the availablity of the data set used to support the findings of this work is restricted; the data set was used under contract for this study. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of source code will have to provide their own labeled data sets for training each of the machine learning models.
