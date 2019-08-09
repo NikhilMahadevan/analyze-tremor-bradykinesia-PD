@@ -25,20 +25,21 @@ pip install -r requirements.txt
 Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below:
 
 <p align="center">
-  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6X2C74T2QCNCCZHWYS5JWLVK">
+  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6QYQCBKJ36DQ2QQECK5JWNN2">
 </p>
 
 This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the availablity of the data set used to support the findings of this work is restricted; the data set was used under contract for this study. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of source code will have to provide their own labeled data sets for training each of the machine learning models.
 
 The repository is organized as follows:
 * __classifiers__: code to generate classifiers in each node of the tree above
-File | Model Type |
---- | --- |
-hand_movement_classifier.py | Heuristic |
-resting_tremor_classifier.py | Machine Learning |
-gait_classifier.py | Machine Learning |
-resting_tremor_amplitude.py | Heuristic |
-hand_movement_features.py | Heuristic |
+
+|File | Model Type |
+| --- | --- |
+| hand_movement_classifier.py | Heuristic |
+| resting_tremor_classifier.py | Machine Learning |
+| gait_classifier.py | Machine Learning |
+| resting_tremor_amplitude.py | Heuristic |
+| hand_movement_features.py | Heuristic |
 
 * __endpoints__: code to aggregate endpoints for resting tremor and bradykinesia
 * __features__: accelerometer signal features used to train supervised learning machine learning models
