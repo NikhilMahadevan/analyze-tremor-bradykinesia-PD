@@ -55,7 +55,7 @@ The repository is organized as follows:
 ## Instructions for Use
 Each classifer file is set up to be run independently or can be chained together in a higher level function. Each file requires a filepath to raw accelerometer data (**as a .CSV file**) from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file. All processing code in this repository is set up to run on **3 second windows**.
 
-A example of to make use of this code is as follows:
+A example of how to make use of this code is as follows:
 
 1. First train, validate, and test a gait and tremor machine learning classifier. A leave-one-subject-out routine was used to train and validate each machine learning classifier in this work. The `classifiers/resting_tremor_classifier.py` and `classifiers/gait_classifier.py` files enable signal pre-processing, feature extraction, and feature selection for each classifier respectively (as used in our work). Also the default parameters of each machine learning model used in our work can be loaded (untrained) via: `model = initialize_model()` function call. The user can then train the respective model via the `scikit-learn` `.fit` function (ex: `model.fit(feature_set`)).
 
@@ -63,7 +63,12 @@ A example of to make use of this code is as follows:
 
 3. The user can then organize all the predictions from each module into a single `Pandas DataFrame` with the following column headers: `'hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'brady_amplitude', 'brady_jerk'`. These predictions can then be filtered using the hierarchical tree shown above with the function: `filter_predictions_by_tree()` in the `endpoints/filter_classifier_predictions.py` file. This function will return another `Pandas DataFrame` of predictions with the following columns: `'tremor_classifier_predictions','tremor_amplitude_predictions','hand_movement_predictions', 'hand_movement_amplitude', 'hand_movement_jerk'`.
 
-4. Summary measures can be generated for each measurement. Aggregate measures of tremor (tremor constancy and tremor amplitude) can be computed using the functions `compute_tremor_constancy()` and `compute_aggregate_tremor_amplitude()` respectively from the file `endpoints/resting_tremor_endpoints.py`. Aggregate measures of bradykinesia (hand movement amplitude, smoothness of hand movement, percentage of no hand movement, length of no hand movement bouts) can be computed using `compute_aggregate_hand_movement_amplitude()`, `compute_aggregate_smoothness_of_hand_movement()`, `compute_aggregate_percentage_of_no_hand_movement()`, `compute_aggregate_length_of_no_hand_movement_bouts()` respectively from the file `endpoints/bradykinesia_endpoints.py`.
+4. Summary measures can be generated for each measurement. Aggregate measures of tremor (tremor constancy and tremor amplitude) can be computed using the functions `compute_tremor_constancy()` and `compute_aggregate_tremor_amplitude()` respectively from the file `endpoints/resting_tremor_endpoints.py`. Aggregate measures of bradykinesia (hand movement amplitude, smoothness of hand movement, percentage of no hand movement, length of no hand movement bouts) can be computed using `compute_aggregate_hand_movement_amplitude()`, `compute_aggregate_smoothness_of_hand_movement()`, `compute_aggregate_percentage_of_no_hand_movement()`, `compute_aggregate_length_of_no_hand_movement_bouts()` respectively from the `endpoints/bradykinesia_endpoints.py` file.
+
+The figure below shows an example visualization of these digital measurements for a given day of data from a subject.
+<p align="center">
+  <img width="700" height="500" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6V5VT3INJZNEQPF4KC5JW7AM">
+</p>
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
