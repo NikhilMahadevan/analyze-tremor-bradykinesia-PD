@@ -31,7 +31,7 @@ Our method for continuous objective of assessment of resting tremor and bradykin
 This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the availablity of the data set used to support the findings of this work is restricted; the data set was used under contract for this study. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of source code will have to provide their own labeled data sets for training each of the machine learning models.
 
 The repository is organized as follows:
-* __classifiers__: code to generate classifiers in each node of the tree above
+* __classifiers__: code to generate classifiers in each node of the tree above. See further explanation in table below:
 
 |File | Model Type | Description |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ The repository is organized as follows:
 | resting_tremor_amplitude.py | Heuristic | Compute tremor amplitude (during bouts of tremor) |
 | hand_movement_features.py | Heuristic | Compute amplitude of hand movement and smoothness of hand movement (jerk metric) |
 
-* __endpoints__: code to filter model predictions per the tree above and summarize measures of resting tremor and bradykinesia for a given period of time
+* __endpoints__: code to filter model predictions per the tree above and summarize measures of resting tremor and bradykinesia for a given period of time. See further explanation in table below:
 
 |File| Description|
 |---|---|
@@ -51,6 +51,9 @@ The repository is organized as follows:
 
 * __signal_preprocessing__: signal preprocessing functions applied on accelerometer data prior to feature extraction
 * __features__: signal features extracted from accelerometer data used to train supervised learning machine learning models
+
+## Demo
+A demo utilizing each of the functions explained above can be seen in the iPython notebook `demo_run_analytics.ipynb` in the `demo` folder. Since there are restrictions on the data set used with our work, the example data used for the demo is not from a Parkinson's patient and should not be used to analyze symptom endpoints. The demo is purely used to show how to make use of each of the code files. Please see below section **Instructions for Use** for more detailed instructions to make use of the code.
 
 ## Instructions for Use
 Each classifer file is set up to be run independently or can be chained together in a higher level function. Each file requires a filepath to raw accelerometer data (**as a .CSV file**) from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file. All processing code in this repository is set up to run on **3 second windows**.
@@ -69,9 +72,6 @@ The figure below shows an example visualization of these digital measurements fo
 <p align="center">
   <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6QPSA3WWUOA2SS37SS5JXGLQ">
 </p>
-
-## Demo
-A demo utilizing each of the functions explained above can be seen in the iPython notebook `demo_run_analytics.ipynb` in the `demo` folder. Since there are restrictions on the data set used with our work, the example data used for the demo is not from a Parkinson's patient and should not be used to analyze symptom endpoints. The demo is purely used to show how to run each of the functions.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
