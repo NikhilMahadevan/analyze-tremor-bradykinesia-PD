@@ -67,8 +67,9 @@ A example of how to make use of this code is as follows:
 
 The figure below shows an example visualization of these digital measurements for a given day of data from a subject.
 <p align="center">
-  <img width="700" height="600" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6WTABHDA6WDBPZIA325JXFC6">
+  <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6WTABHDA6WDBPZIA325JXFC6">
 </p>
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
+
