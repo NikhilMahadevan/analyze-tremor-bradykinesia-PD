@@ -52,3 +52,6 @@ The repository is organized as follows:
 * __signal_preprocessing__: signal preprocessing functions applied on accelerometer data prior to feature extraction
 * __features__: signal features extracted from accelerometer data used to train supervised learning machine learning models
 
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
+
