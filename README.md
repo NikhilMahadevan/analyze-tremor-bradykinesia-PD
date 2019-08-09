@@ -52,6 +52,11 @@ The repository is organized as follows:
 * __signal_preprocessing__: signal preprocessing functions applied on accelerometer data prior to feature extraction
 * __features__: signal features extracted from accelerometer data used to train supervised learning machine learning models
 
+## Instructions for Use
+Each classifer file is set up to be run independently or can be chained together in a higher level function. Each file just requires a filepath to raw accelerometer data as a .CSV file from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer data .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file.
+
+A example way to make use of this code is to first train, validate, and test a gait and tremor machine learning classifier. A leave-one-subject-out routine was used to train and validate each machine learning classifier in this work. The `resting_tremor_classifier.py` and `gait_classifier.py` files enable signal pre-processing, feature extraction, and feature selection for each classifier respectively. Also the default parameters of each machine learning model used in our work can be loaded (untrained) via: `model = initialize_model()` function call. The user can then train the respective model via the `scikit-learn` `.fit` function (ex: `model.fit(feature_set`)).
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
 
