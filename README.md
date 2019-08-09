@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## Repository Contents
-Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below.
+Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below:
 
 <p align="center">
   <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6X2C74T2QCNCCZHWYS5JWLVK">
@@ -32,6 +32,14 @@ This system utilizes heuristic and machine learning models for context detection
 
 The repository is organized as follows:
 * __classifiers__: code to generate classifiers in each node of the tree above
+File | Model Type |
+--- | --- |
+hand_movement_classifier.py | Heuristic |
+resting_tremor_classifier.py | Machine Learning |
+gait_classifier.py | Machine Learning |
+resting_tremor_amplitude.py | Heuristic |
+hand_movement_features.py | Heuristic |
+
 * __endpoints__: code to aggregate endpoints for resting tremor and bradykinesia
 * __features__: accelerometer signal features used to train supervised learning machine learning models
 * __signal_preprocessing__: accelerometer signal preprocessing functions
