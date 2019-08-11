@@ -78,10 +78,10 @@ def build_rest_tremor_classification_feature_set(raw_accelerometer_data_df, fs):
     for win in range(int(total_windows)):
         current_win_start = int(window_samples * win + 1)
         current_win_end = int(current_win_start + window_samples - 1)
-        if current_win_end > raw_accelerometer_data_df.shape[0]:
-            window_data_df = raw_accelerometer_data_df.loc[current_win_start:, :]
+        if current_win_end > filtered_data_df.shape[0]:
+            window_data_df = filtered_data_df.loc[current_win_start:, :]
         else:
-            window_data_df = raw_accelerometer_data_df.loc[current_win_start:current_win_end, :]
+            window_data_df = filtered_data_df.loc[current_win_start:current_win_end, :]
         window_data_df.reset_index(drop=True, inplace=True)
 
         # Create DataFrame for current window of data
