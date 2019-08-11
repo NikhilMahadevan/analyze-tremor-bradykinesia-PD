@@ -25,7 +25,7 @@ pip install -r requirements.txt
 Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below:
 
 <p align="center">
-  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6USSTXOROL2F5QBJJC5JXKAQ">
+  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/pd_analytics_diagram.png?token=ABFEV6VKWG33FTQRU7MUCQC5J5WIU">
 </p>
 
 This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the data set used to support the findings of this work is restricted for public use. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of this source code will have to provide their own labeled data sets for training each of the machine learning models.
@@ -56,7 +56,7 @@ The repository is organized as follows:
 A demo utilizing each of the functions explained above can be seen in the iPython notebook `demo_run_analytics.ipynb` in the `demo` folder. Since there are restrictions on the data set used with our work, the example data used for the demo is not from a Parkinson's patient and should not be used to analyze symptom endpoints. The demo is purely used to show how to make use of the code. Please see below section **Instructions for Use** for a more detailed explanation.
 
 ## Instructions for Use
-Each classifer file is set up to be run independently but can also chained together in a higher level function. Each file requires a filepath to raw accelerometer data (as a .CSV file) from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file. All processing code in this repository is set up to run on **3 second windows**.
+Each classifer file is set up to be run independently but can also chained together in a higher level function. Each file requires a filepath to raw accelerometer data (as a **.CSV file (unit = G's)**) from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file. All processing code in this repository is set up to run on **3 second windows**.
 
 An example of how to make use of this code is as follows:
 
@@ -70,9 +70,8 @@ An example of how to make use of this code is as follows:
 
 The figure below shows an example visualization of these digital measurements for a given day of data from a subject (a. Tremor related measures for subject, b. Bradykinesia related measures for subject).
 <p align="center">
-  <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6WBYSFEP6OJRZTYECK5JXJ7E">
+  <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/update-readme/images/continuous_digital_measures.png?token=ABFEV6Q3PWE3FZDFDBYX4MC5J5WGO">
 </p>
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
-
