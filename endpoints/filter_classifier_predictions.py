@@ -17,15 +17,15 @@ def filter_predictions_by_tree(algorithm_predictions):
     '''
     Filter out predictions based on context.
 
-    :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'brady_amplitude', 'brady_jerk']
+    :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'hand_movement_amplitude', 'hand_movement_jerk']
     :return: Pandas DataFrame of filtered predictions based on context.
     '''
     hm = algorithm_predictions.hand_movement.tolist()
     gait = algorithm_predictions.gait.tolist()
     tremor_constancy = algorithm_predictions.tremor_constancy.tolist()
     tremor_amp = algorithm_predictions.tremor_amplitude.tolist()
-    brady_amp = algorithm_predictions.brady_amplitude.tolist()
-    brady_jerk = algorithm_predictions.brady_jerk.tolist()
+    brady_amp = algorithm_predictions.hand_movement_amplitude.tolist()
+    brady_jerk = algorithm_predictions.hand_movement_jerk.tolist()
 
     t_c_filtered = []
     t_a_filtered = []
