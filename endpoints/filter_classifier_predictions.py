@@ -46,11 +46,14 @@ def filter_predictions_by_tree(algorithm_predictions):
         else:
             t_c_filtered.append('NA')
             t_a_filtered.append('NA')
-            if gait == 0:
+            if gait_p == 0:
                 b_a_filtered.append(brady_amp_p)
                 h_m_filtered.append(hm_p)
                 b_j_filtered.append(brady_j_p)
-
+            else:
+                b_a_filtered.append('NA')
+                h_m_filtered.append('NA')
+                b_j_filtered.append('NA')
 
     final_data = pd.DataFrame()
     final_data['tremor_classifier_predictions'] = pd.Series(t_c_filtered)
