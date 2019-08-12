@@ -112,4 +112,4 @@ if __name__ == "__main__":
     window_length = 3 # Specify window length (in seconds) to output hand movement predictions
 
     # Run hand movement detection
-    window_labels = detect_hand_movement(wrist_accel, window_length=window_length, fs=sampling_rate)
+    window_labels = detect_hand_movement(wrist_accel, sampling_rate)

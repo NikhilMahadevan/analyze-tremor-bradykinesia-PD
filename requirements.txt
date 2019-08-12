@@ -1,0 +1,7 @@
+numpy==1.16.4
+pandas==0.23.4
+scikit-image==0.13.0
+scikit-learn==0.20.0
+scipy==1.2.2
+statsmodels==0.8.0
+tsfresh==0.11.0
