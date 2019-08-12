@@ -25,7 +25,7 @@ pip install -r requirements.txt
 Our method for continuous objective of assessment of resting tremor and bradykinesia follows the hierarchical framework seen below:
 
 <p align="center">
-  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/master/images/pd_analytics_diagram.png?token=ABFEV6RRNQCH5PIEXMMIVSK5KC6SC">
+  <img width="500" height="450" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/master/images/pd_analytics_diagram.png?token=ABFEV6VLB4NFJGYF5KCO4BS5KDAF2">
 </p>
 
 This system utilizes heuristic and machine learning models for context detection and symptom assessment. This repository contains the source code for each module. Currently the data set used to support the findings of this work is restricted for public use. All heuristic models are available, but for machine learning models only the code for generating the signal based features used as input into model training and model parameters are available. Users of this source code will have to provide their own labeled data sets for training each of the machine learning models.
@@ -72,9 +72,8 @@ An example of how to make use of this code is as follows:
 
 The figure below shows an example visualization of these digital measurements for a given day of data from a subject (a. Tremor related measures for subject, b. Bradykinesia related measures for subject).
 <p align="center">
-  <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/master/images/continuous_digital_measures.png?token=ABFEV6TXWZFZX3CYZNIKL2S5KC6QY">
+  <img width="800" height="700" src="https://raw.githubusercontent.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/master/images/continuous_digital_measures.png?token=ABFEV6SSRKBDQDOYUUTRODC5KDAEK">
 </p>
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
-
