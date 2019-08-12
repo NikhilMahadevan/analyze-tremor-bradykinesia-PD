@@ -55,6 +55,8 @@ The repository is organized as follows:
 ## Demo
 A demo utilizing each of the functions explained above can be seen in the iPython notebook `demo_run_analytics.ipynb` in the `demo` folder. Since there are restrictions on the data set used with our work, the example data used for the demo is not from a Parkinson's patient and should not be used to analyze symptom endpoints. The demo is purely used to show how to make use of the code. Please see below section **Instructions for Use** for a more detailed explanation.
 
+The iPython notebook server can be started via the command line by navigating to the root folder of this code base and then typing: `jupyter notebook`. Once the server is started, navigate to the `demo` folder and open the `demo_run_analytics.ipynb` file.
+
 ## Instructions for Use
 Each classifer file is set up to be run independently but can also chained together in a higher level function. Each file requires a filepath to raw accelerometer data (as a **.CSV file (unit = G's)**) from a wrist-worn device and the sampling rate of the accelerometer data. The raw accelerometer .CSV file should be organized with the following column headers: `'ts','x','y','z'`. The code is set up to be manipulated by the user. Each file has a `if __name__ == "__main__":` section which serves as the entry point for all relevant functions in each file. All processing code in this repository is set up to run on **3 second windows**.
 
@@ -75,3 +77,4 @@ The figure below shows an example visualization of these digital measurements fo
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NikhilMahadevan/analyze-tremor-bradykinesia-PD/blob/update-readme/LICENSE) file for details
+
