@@ -17,23 +17,23 @@ def filter_predictions_by_tree(algorithm_predictions):
     '''
     Filter out predictions based on context.
 
-    :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'brady_amplitude', 'brady_jerk']
+    :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'hand_movement_amplitude', 'hand_movement_jerk']
     :return: Pandas DataFrame of filtered predictions based on context.
     '''
-    hm = algorithm_predictions.hand_movement.tolist()
-    gait = algorithm_predictions.gait.tolist()
-    tremor_constancy = algorithm_predictions.tremor_constancy.tolist()
-    tremor_amp = algorithm_predictions.tremor_amplitude.tolist()
-    brady_amp = algorithm_predictions.brady_amplitude.tolist()
-    brady_jerk = algorithm_predictions.brady_jerk.tolist()
-
     t_c_filtered = []
     t_a_filtered = []
     b_a_filtered = []
     b_j_filtered = []
     h_m_filtered = []
 
-    for hm_p, gait_p, trem_c_p, trem_a_p, brady_amp_p, brady_j_p in zip(hm, gait, tremor_constancy, tremor_amp, brady_amp, brady_jerk):
+    for row in algorithm_predictions.itertuples():
+        hm_p = row.hand_movement
+        gait_p = row.gait
+        trem_c_p = row.tremor_constancy
+        trem_a_p = row.tremor_amplitude
+        brady_amp_p = row.hand_movement_amplitude
+        brady_j_p = row.hand_movement_jerk
+
         if hm_p == 0:
             b_a_filtered.append('NA')
             b_j_filtered.append('NA')
@@ -46,11 +46,14 @@ def filter_predictions_by_tree(algorithm_predictions):
         else:
             t_c_filtered.append('NA')
             t_a_filtered.append('NA')
-            if gait == 0:
+            if gait_p == 0:
                 b_a_filtered.append(brady_amp_p)
                 h_m_filtered.append(hm_p)
                 b_j_filtered.append(brady_j_p)
-
+            else:
+                b_a_filtered.append('NA')
+                h_m_filtered.append('NA')
+                b_j_filtered.append('NA')
 
     final_data = pd.DataFrame()
     final_data['tremor_classifier_predictions'] = pd.Series(t_c_filtered)
