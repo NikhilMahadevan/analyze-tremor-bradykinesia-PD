@@ -38,7 +38,7 @@ The repository is organized as follows:
 | hand_movement_classifier.py | Heuristic | Binary classification of hand movement |
 | resting_tremor_classifier.py | Machine Learning | Binary classification of resting tremor |
 | gait_classifier.py | Machine Learning | Binary classification of gait |
-| resting_tremor_amplitude.py | Heuristic | Compute tremor amplitude (during bouts of tremor) |
+| resting_tremor_amplitude.py | Heuristic | Compute tremor amplitude |
 | hand_movement_features.py | Heuristic | Compute amplitude of hand movement and smoothness of hand movement (jerk metric) |
 
 * __endpoints__: code to filter model predictions per the tree above and summarize measures of resting tremor and bradykinesia for a given period of time. See further explanation in table below:
@@ -64,7 +64,7 @@ An example of how to make use of this code is as follows:
 
 1. First train, validate, and test a gait and tremor machine learning classifier. We used a leave-one-subject-out routine to train and validate each machine learning classifier. The `classifiers/resting_tremor_classifier.py` and `classifiers/gait_classifier.py` files enable signal pre-processing, feature extraction, and feature selection for each classifier respectively (as used in our work). Also the default parameters of each machine learning model used can be loaded (untrained) via: `model = initialize_model()` function call. The user can then train the respective model via the `scikit-learn` `.fit` function (ex: `model.fit(feature_set`)).
 
-2. Next, once the machine learning classifiers have been trained, the user can run the raw accelerometer data through `classifiers/hand_movement_classifier.py` to get binary hand movement predictions, `classifiers/resting_tremor_amplitude_classifier.py` to get resting tremor amplitude predictions, and `classifiers/hand_movement_features.py` to get predictions for hand movement amplitude and smoothness of hand movement (jerk metric).
+2. Next, the user can run the raw accelerometer data through `classifiers/hand_movement_classifier.py` to get binary hand movement predictions, `classifiers/resting_tremor_amplitude_classifier.py` to get resting tremor amplitude predictions, and `classifiers/hand_movement_features.py` to get predictions for hand movement amplitude and smoothness of hand movement (jerk metric).
 
 3. The user can then organize all the predictions from each module into a single `Pandas DataFrame` with the following column headers: `'hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'hand_movement_amplitude', 'hand_movement_jerk'`. These predictions can then be filtered using the hierarchical tree shown above with the function: `filter_predictions_by_tree()` in the `endpoints/filter_classifier_predictions.py` file. This function will return another `Pandas DataFrame` of predictions with the following columns: `'tremor_classifier_predictions','tremor_amplitude_predictions','hand_movement_predictions', 'hand_movement_amplitude', 'hand_movement_jerk'`.
 
