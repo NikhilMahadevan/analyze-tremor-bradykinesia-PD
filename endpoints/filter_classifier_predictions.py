@@ -20,20 +20,20 @@ def filter_predictions_by_tree(algorithm_predictions):
     :param algorithm_predictions: Pandas DataFrame with following columns = ['hand_movement', 'gait', 'tremor_constancy', 'tremor_amplitude', 'hand_movement_amplitude', 'hand_movement_jerk']
     :return: Pandas DataFrame of filtered predictions based on context.
     '''
-    hm = algorithm_predictions.hand_movement.tolist()
-    gait = algorithm_predictions.gait.tolist()
-    tremor_constancy = algorithm_predictions.tremor_constancy.tolist()
-    tremor_amp = algorithm_predictions.tremor_amplitude.tolist()
-    brady_amp = algorithm_predictions.hand_movement_amplitude.tolist()
-    brady_jerk = algorithm_predictions.hand_movement_jerk.tolist()
-
     t_c_filtered = []
     t_a_filtered = []
     b_a_filtered = []
     b_j_filtered = []
     h_m_filtered = []
 
-    for hm_p, gait_p, trem_c_p, trem_a_p, brady_amp_p, brady_j_p in zip(hm, gait, tremor_constancy, tremor_amp, brady_amp, brady_jerk):
+    for row in algorithm_predictions.itertuples():
+        hm_p = row.hand_movement
+        gait_p = row.gait
+        trem_c_p = row.tremor_constancy
+        trem_a_p = row.tremor_amplitude
+        brady_amp_p = row.hand_movement_amplitude
+        brady_j_p = row.hand_movement_jerk
+
         if hm_p == 0:
             b_a_filtered.append('NA')
             b_j_filtered.append('NA')
